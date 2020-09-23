@@ -117,107 +117,78 @@ class _JoinFormState extends State<JoinForm> {
     return Dialog(
       elevation: 8.0,
       child: Container(
-        margin: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(29),
         width: MediaQuery.of(context).size.width / 2.5,
         height: MediaQuery.of(context).size.height / 1.5,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [kWhiteColor, Colors.grey[350], kWhiteColor],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
         child: Form(
           key: widget._formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TextFormField(
-                  autofocus: true,
-                  validator: (value) {
-                    if (value.isEmpty)
-                      return '*Please Enter Your Full Name';
-                    else
-                      return null;
-                  },
-                  style: TextStyle(fontSize: 20, color: kBlueColor),
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(12.0),
-                      labelText: 'Full Name',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      prefixIcon: Icon(Icons.person_outline)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TextFormField(
+                autofocus: true,
+                validator: (value) {
+                  if (value.isEmpty)
+                    return '*Please Enter Your Full Name';
+                  else
+                    return null;
+                },
+                style: TextStyle(fontSize: 20, color: kBlueColor),
+                cursorColor: Colors.black,
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.all(12.0),
+                    labelText: 'Full Name',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    prefixIcon: Icon(Icons.person_outline)),
+              ),
+              SizedBox(height: 20),
+              TextFormField(
+                validator: (value) {
+                  bool emailValid = RegExp(
+                          r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                      .hasMatch(value);
+                  if (value.isEmpty)
+                    return '*Please Enter Your Working Email';
+                  else if (!emailValid)
+                    return '*Enter a Valid Email';
+                  else
+                    return null;
+                },
+                style: TextStyle(fontSize: 20, color: kBlueColor),
+                cursorColor: Colors.black,
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.all(12.0),
+                    labelText: 'Email',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    prefixIcon: Icon(Icons.email_outlined)),
+              ),
+              SizedBox(height: 20),
+              Row(children: [
+                Expanded(
+                  child: TextField(
+                      controller: _resumeController,
+                      readOnly: true,
+                      style: TextStyle(fontSize: 20, color: kBlueColor),
+                      cursorColor: Colors.black,
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.all(12.0),
+                        labelText: 'Upload Resume',
+                        hintText: 'Choose file',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        prefixIcon: Icon(Icons.file_copy),
+                      )),
                 ),
-                SizedBox(height: 20),
-                TextFormField(
-                  validator: (value) {
-                    bool emailValid = RegExp(
-                            r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
-                        .hasMatch(value);
-                    if (value.isEmpty)
-                      return '*Please Enter Your Working Email';
-                    else if (!emailValid)
-                      return '*Enter a Valid Email';
-                    else
-                      return null;
-                  },
-                  style: TextStyle(fontSize: 20, color: kBlueColor),
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(12.0),
-                      labelText: 'Email',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      prefixIcon: Icon(Icons.email_outlined)),
-                ),
-                SizedBox(height: 20),
-                Row(children: [
-                  Expanded(
-                    child: TextField(
-                        controller: _resumeController,
-                        readOnly: true,
-                        style: TextStyle(fontSize: 20, color: kBlueColor),
-                        cursorColor: Colors.black,
-                        decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.all(12.0),
-                          labelText: 'Upload Resume',
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12)),
-                          prefixIcon: Icon(Icons.file_copy),
-                        )),
-                  ),
-                  SizedBox(width: 20),
-                  MaterialButton(
-                    height: 48,
-                    color: kBlueColor,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 12.0),
-                      child: Text(
-                        'Upload',
-                        style: TextStyle(
-                            color: kWhiteColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    onPressed: () async {
-                      File file;
-                      FilePickerResult result = await FilePicker.platform
-                          .pickFiles(
-                              allowMultiple: false,
-                              allowedExtensions: ['pdf', 'doc', 'docx']);
-                      if (result != null)
-                        file = File(result.files.single.bytes, 'resume');
-                      print(result.paths);
-                      print(file.relativePath);
-                      _resumeController.text = file.relativePath;
-                    },
-                  ),
-                ]),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 4,
-                ),
+                SizedBox(width: 20),
                 MaterialButton(
                   height: 48,
                   color: kBlueColor,
@@ -227,17 +198,49 @@ class _JoinFormState extends State<JoinForm> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
                     child: Text(
-                      'Submit',
+                      'Upload',
                       style: TextStyle(
                           color: kWhiteColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    File file;
+                    FilePickerResult result = await FilePicker.platform
+                        .pickFiles(
+                            allowMultiple: false,
+                            allowedExtensions: ['pdf', 'doc', 'docx']);
+                    if (result != null)
+                      file = File(result.files.single.bytes, 'resume');
+                    print(result.paths);
+                    print(file.relativePath);
+                    _resumeController.text = file.relativePath;
+                  },
                 ),
-              ],
-            ),
+              ]),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 4,
+              ),
+              MaterialButton(
+                height: 48,
+                color: kBlueColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 8.0, horizontal: 12.0),
+                  child: Text(
+                    'Submit',
+                    style: TextStyle(
+                        color: kWhiteColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
       ),

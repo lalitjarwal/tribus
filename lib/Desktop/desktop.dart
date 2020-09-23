@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tribus/Desktop/aboutpage.dart';
 import 'package:tribus/Desktop/homepage.dart';
 import 'package:tribus/Desktop/joinpage.dart';
+import 'package:tribus/Desktop/productspage.dart';
 import 'package:tribus/Desktop/servicepage.dart';
 import 'package:tribus/Desktop/teampage.dart';
 import 'package:tribus/Widgets/hoverbutton.dart';
 import 'package:tribus/constants.dart';
-
 
 class DesktopHome extends StatefulWidget {
   @override
@@ -20,7 +20,6 @@ class _DesktopHomeState extends State<DesktopHome> {
 
   @override
   void initState() {
-
     super.initState();
   }
 
@@ -112,10 +111,7 @@ class _DesktopHomeState extends State<DesktopHome> {
             children: [
               HomePage(),
               ServicePage(),
-              Container(
-                color: Colors.red,
-                child: Center(child: Text('products')),
-              ),
+              ProductPage(),
               JoinPage(),
               TeamPage(),
               AboutPage(),
