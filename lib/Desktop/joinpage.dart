@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:tribus/constants.dart';
@@ -206,16 +204,16 @@ class _JoinFormState extends State<JoinForm> {
                     ),
                   ),
                   onPressed: () async {
-                    File file;
-                    FilePickerResult result = await FilePicker.platform
-                        .pickFiles(
-                            allowMultiple: false,
-                            allowedExtensions: ['pdf', 'doc', 'docx']);
-                    if (result != null)
-                      file = File(result.files.single.bytes, 'resume');
-                    print(result.paths);
-                    print(file.relativePath);
-                    _resumeController.text = file.relativePath;
+                    // File file;
+                    // FilePickerResult result = await FilePicker.platform
+                    //     .pickFiles(
+                    //         allowMultiple: false,
+                    //         allowedExtensions: ['pdf', 'doc', 'docx']);
+                    // if (result != null)
+                    //   file = File(result.files.single.bytes, 'resume');
+                    // print(result.paths);
+                    // print(file.relativePath);
+                    // _resumeController.text = file.relativePath;
                   },
                 ),
               ]),

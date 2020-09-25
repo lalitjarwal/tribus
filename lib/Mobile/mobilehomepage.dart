@@ -44,7 +44,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
             onPageChanged: (index, reason) {
               setState(() {
                 _index = index;
-                print(_index);
+                //print(_index);
               });
             },
              viewportFraction: 1,
@@ -102,7 +102,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
       width: _index == index ? 30 : 20,
       duration: Duration(milliseconds: 300),
       decoration: BoxDecoration(
-          color: _index == index ? Colors.white : Colors.grey,
+          color: _index == index ? kBlueColor : kWhiteColor,
           borderRadius: BorderRadius.circular(5)),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:tribus/Widgets/title.dart';
 import 'package:tribus/constants.dart';
 
 class ProductPage extends StatelessWidget {
@@ -14,7 +15,16 @@ class ProductPage extends StatelessWidget {
         image: NetworkImage(
             'https://image.freepik.com/free-photo/blue-product-background_53876-89506.jpg'),
       )),
-      child: Center(child: ProductCard()),
+      child: Center(
+          child: Column(
+        children: [
+          Spacer(flex: 1),
+          TitleString('Products'),
+          Spacer(flex: 2),
+          ProductCard(),
+          Spacer(flex: 4),
+        ],
+      )),
     );
   }
 }

@@ -16,10 +16,11 @@ class DesktopHome extends StatefulWidget {
 
 class _DesktopHomeState extends State<DesktopHome> {
   var currIndex = 0;
-  final _controller = PageController();
+  var _controller;
 
   @override
   void initState() {
+    _controller = PageController();
     super.initState();
   }
 
@@ -97,26 +98,27 @@ class _DesktopHomeState extends State<DesktopHome> {
       ),
       /////////////////////////////////////////////////////////////////////////--Body--//////////////////////////////////////////////
       body: Scrollbar(
-          thickness: 10,
-          radius: Radius.circular(10),
-          child: PageView(
-            onPageChanged: (value) {
-              setState(() {
-                currIndex = value;
-              });
-            },
-            controller: _controller,
-            scrollDirection: Axis.vertical,
-            physics: AlwaysScrollableScrollPhysics(),
-            children: [
-              HomePage(),
-              ServicePage(),
-              ProductPage(),
-              JoinPage(),
-              TeamPage(),
-              AboutPage(),
-            ],
-          )),
+        thickness: 10,
+        radius: Radius.circular(10),
+        child: PageView(
+          onPageChanged: (value) {
+            setState(() {
+              currIndex = value;
+            });
+          },
+          controller: _controller,
+          scrollDirection: Axis.vertical,
+          physics: AlwaysScrollableScrollPhysics(),
+          children: [
+            HomePage(),
+            ServicePage(),
+            ProductPage(),
+            JoinPage(),
+            TeamPage(),
+            AboutPage(),
+          ],
+        ),
+      ),
     );
   }
 
