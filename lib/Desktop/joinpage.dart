@@ -1,4 +1,4 @@
-import 'package:file_picker/file_picker.dart';
+//import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:tribus/constants.dart';
 
@@ -119,10 +119,12 @@ class _JoinFormState extends State<JoinForm> {
         width: MediaQuery.of(context).size.width / 2.5,
         height: MediaQuery.of(context).size.height / 1.5,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [kWhiteColor, Colors.grey[350], kWhiteColor],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            //colors: [kWhiteColor, Colors.grey[350], kWhiteColor],
+          ),
+        ),
         child: Form(
           key: widget._formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
