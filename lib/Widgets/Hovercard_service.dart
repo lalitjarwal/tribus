@@ -51,16 +51,18 @@ class _HoverCardServiceState extends State<HoverCardService> {
                 child: Container(
                   margin: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey[300],
-                        width: 4,
+                    border: Border.all(
+                      color: Colors.grey[300],
+                      width: 4,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage(
+                        widget.url,
                       ),
-                      borderRadius: BorderRadius.circular(8),
-                      image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: NetworkImage(
-                            widget.url,
-                          ))),
+                    ),
+                  ),
                 ),
               ),
               Expanded(
@@ -84,7 +86,7 @@ class _HoverCardServiceState extends State<HoverCardService> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.desc,
-                      textAlign: TextAlign.center,
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             color: kBlackColor,
                             fontSize: 18,

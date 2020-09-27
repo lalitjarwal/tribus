@@ -80,7 +80,7 @@ class _HoverProfileState extends State<HoverProfile> {
                       : null,
                   image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: NetworkImage(
+                      image: AssetImage(
                         widget.dpUrl,
                       )),
                   shape: BoxShape.circle,

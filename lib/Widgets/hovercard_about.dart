@@ -19,82 +19,85 @@ class _HoverCardState extends State<HoverCard> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return MouseRegion(
-        onEnter: (event) {
-          print(MediaQuery.of(context).size.height);
-          setState(() {
-            _isHover = true;
-          });
-        },
-        onExit: (event) {
-          setState(() {
-            _isHover = false;
-          });
-        },
-        child: Card(
-          //shadowColor: Colors.blue,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          elevation: _isHover ? 26.0 : 4.0,
-          child: Container(
-            width: size.width / 3.4,
-            height: size.height / 2.6,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: NetworkImage(widget.bannerUrl))),
-                        )),
-                    Expanded(
-                      flex: 2,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                widget.title,
-                                textScaleFactor: 2,
-                                //overflow: TextOverflow.ellipsis,
-                                style: TextStyle(color: kBlueColor),
-                              ),
-                            ),
-                            Divider(
-                              indent: 25,
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 30),
-                              child: Text(
-                                widget.desc,
-                                textAlign: TextAlign.justify,
-                                textScaleFactor: size.width<=1450?0.7:0.9,
-                                maxLines: size.width<=1000?8:null,
-                                overflow: size.width<=1000?TextOverflow.ellipsis:null,
-                                style: TextStyle(color: kBlackColor),
-                              ),
-                            ),
-                            Spacer(),
-                          ]),
+      onEnter: (event) {
+        print(MediaQuery.of(context).size.height);
+        setState(() {
+          _isHover = true;
+        });
+      },
+      onExit: (event) {
+        setState(() {
+          _isHover = false;
+        });
+      },
+      child: Card(
+        //shadowColor: Colors.blue,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        elevation: _isHover ? 26.0 : 4.0,
+        child: Container(
+          width: size.width / 3.4,
+          height: size.height / 2.6,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(widget.bannerUrl),
+                        ),
+                      ),
                     ),
-                  ],
-                ),
-                Positioned(
-                  left: size.width / 13,
-                  child: CircleAvatar(
-                    radius: size.width / 51.2, //26.46
-                    backgroundImage: NetworkImage(widget.url),
                   ),
-                )
-              ],
-            ),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              widget.title,
+                              textScaleFactor: 2,
+                              style: TextStyle(color: kBlueColor),
+                            ),
+                          ),
+                          Divider(
+                            indent: 25,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            child: Text(
+                              widget.desc,
+                              textAlign: TextAlign.justify,
+                              textScaleFactor: size.width <= 1450 ? 0.7 : 0.9,
+                              maxLines: size.width <= 1000 ? 8 : null,
+                              overflow: size.width <= 1000
+                                  ? TextOverflow.ellipsis
+                                  : null,
+                              style: TextStyle(color: kBlackColor),
+                            ),
+                          ),
+                          Spacer(),
+                        ]),
+                  ),
+                ],
+              ),
+              Positioned(
+                left: size.width / 13,
+                child: CircleAvatar(
+                  radius: size.width / 51.2,
+                  backgroundImage: NetworkImage(widget.url),
+                ),
+              )
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

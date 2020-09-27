@@ -46,7 +46,7 @@ class JoinPage extends StatelessWidget {
                   onPressed: () {
                     showGeneralDialog(
                         barrierDismissible: true,
-                        barrierLabel: 'Dissmissed',
+                        barrierLabel: 'Dismissed',
                         context: context,
                         pageBuilder: (ctx, anim1, anim2) {
                           return JoinForm(formKey: _formKey);
@@ -72,11 +72,11 @@ class JoinPage extends StatelessWidget {
           flex: 1,
           child: Container(
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: NetworkImage(
-                      'https://image.freepik.com/free-vector/hiring-employment-concept-employee-coming-office-job-interview-recruit-manager-meeting-him-empty-vacant-workplace-employment-vacancy-recruitment-topics_179970-2125.jpg',
-                    ))),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('images/joinus.jpg')
+              ),
+            ),
             child: null,
           ),
         ),
@@ -122,7 +122,7 @@ class _JoinFormState extends State<JoinForm> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            //colors: [kWhiteColor, Colors.grey[350], kWhiteColor],
+            colors: [kWhiteColor, Colors.grey[350], kWhiteColor],
           ),
         ),
         child: Form(

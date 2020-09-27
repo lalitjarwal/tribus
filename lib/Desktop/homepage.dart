@@ -16,40 +16,37 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Stack(fit: StackFit.expand, children: [
       CarouselSlider(
-          carouselController: _controller,
-          items: [
-            Container(
-              decoration: buildBoxDecoration(
-                  'https://image.freepik.com/free-photo/group-people-working-website-template_53876-25068.jpg'),
-              child: buildCenter(
-                  'We Are Professional',
-                  'We at Tribus try our best to solve modern-day problems with smart' +
-                      ' solutions \n using advanced technology. Our main tools are Mobile and Web applications that provides' +
-                      ' the \n effortless result with utmost accuracy. '),
-            ),
-            Container(
-              child: buildCenter('Quality is Our First Priority',
-                  'Our main aim to provide best of best products and services to clients.\nQuality is the only thing by which Tribus is alive '),
-              decoration: buildBoxDecoration(
-                  'https://image.freepik.com/free-photo/close-up-humans-handshake-with-tech-background_23-2148320005.jpg'),
-            ),
-            Container(
-              child: buildCenter('We Follow Only Passion',
-                  'Our team follow passion in their work, support in the team work, \n professionalism with clients. '),
-              decoration: buildBoxDecoration(
-                  'https://image.freepik.com/free-photo/young-businessman-having-many-ideas_23-2148320019.jpg'),
-            )
-          ],
-          options: CarouselOptions(
-            onPageChanged: (index, reason) {
-              setState(() {
-                _index = index;
-               // print(_index);
-              });
-            },
-            viewportFraction: 1,
-            autoPlay: true,
-          )),
+        carouselController: _controller,
+        items: [
+          Container(
+            decoration: buildBoxDecoration('images/carousel1.jpg'),
+            child: buildCenter(
+                'We Are Professional',
+                'We at Tribus try our best to solve modern-day problems with smart' +
+                    ' solutions \n using advanced technology. Our main tools are Mobile and Web applications that provides' +
+                    ' the \n effortless result with utmost accuracy. '),
+          ),
+          Container(
+            child: buildCenter('Quality is Our First Priority',
+                'Our main aim to provide best of best products and services to clients.\nQuality is the only thing by which Tribus is alive '),
+            decoration: buildBoxDecoration('images/carousel2.jpg'),
+          ),
+          Container(
+            child: buildCenter('We Follow Only Passion',
+                'Our team follow passion in their work, support in the team work, \n professionalism with clients. '),
+            decoration: buildBoxDecoration('images/carousel3.jpg'),
+          )
+        ],
+        options: CarouselOptions(
+          onPageChanged: (index, reason) {
+            setState(() {
+              _index = index;
+            });
+          },
+          viewportFraction: 1,
+          autoPlay: true,
+        ),
+      ),
       Align(
         alignment: Alignment.centerLeft,
         child: Container(
@@ -108,38 +105,40 @@ class _HomePageState extends State<HomePage> {
 
   Center buildCenter(String title, String description) {
     return Center(
-        child: Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
-              color: kWhiteColor,
-              letterSpacing: 1.2),
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        Text(
-          description,
-          textAlign: TextAlign.center,
-          style: TextStyle(color: kWhiteColor, fontSize: 20),
-        )
-      ],
-    ));
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                color: kWhiteColor,
+                letterSpacing: 1.2),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            description,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: kWhiteColor, fontSize: 20),
+          )
+        ],
+      ),
+    );
   }
 
   BoxDecoration buildBoxDecoration(String url) {
     return BoxDecoration(
-        image: DecorationImage(
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.5), BlendMode.multiply),
-            image: NetworkImage(
-              url,
-            ),
-            fit: BoxFit.fill));
+      image: DecorationImage(
+          colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.5), BlendMode.multiply),
+          image: AssetImage(
+            url,
+          ),
+          fit: BoxFit.fill),
+    );
   }
 }

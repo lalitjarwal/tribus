@@ -8,10 +8,10 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: NetworkImage(
-                  'https://image.freepik.com/free-vector/watercolor-background_87374-69.jpg'),
-              fit: BoxFit.fill)),
+        image: DecorationImage(
+            image: NetworkImage('images/aboutusbackground.jpg'),
+            fit: BoxFit.fill),
+      ),
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Padding(
@@ -23,31 +23,31 @@ class AboutPage extends StatelessWidget {
           children: [
             HoverCard(
               bannerUrl:
-                  'https://image.freepik.com/free-vector/businessman-top-mountain_1133-275.jpg',
+                  'images/ourmission.jpg',
               title: 'Our Mission',
               desc:
                   'Our mission is to provide a platform to the people where they can find anything that they need. A place where a small idea would be welcomed by both hands and would be provided with the best results out of it. We want to develop an environment where every one of us can thrive and meet all the demands of the coming future. A place where each and every one ‘s voice, not only talking about our employees but our customers and everyone who incubate their ideas in the company would be relished upon and would be cared. ',
               url:
-                  'https://image.freepik.com/free-vector/business-management-vector_53876-44126.jpg',
+                  'images/mission_secondary.jpg',
             ),
             HoverCard(
               bannerUrl:
-                  'https://image.freepik.com/free-vector/manager-prioritizing-tasks-list_74855-5272.jpg',
+                  'images/ourplan.jpg',
               title: 'Our Plan',
               desc:
                   'We plan to provide the best products and services to the people. We never compromise with the quality as in the future we have to create benchmarks for us only. We have to make long term goals and have to create a proper structure to achieve it. We are here to provide great values and to earn and to make respect. ',
               url:
-                  'https://image.freepik.com/free-vector/decorative-blue-square-contour-checkbox-green-color-tick-approval-confirmation-chek-mark-internet-symbol-pictogram-vector-illustration_98292-4639.jpg',
+                  'images/plan_secondary.jpg',
             ),
             HoverCard(
               bannerUrl:
-                  'https://image.freepik.com/free-vector/businessman-flying-rocket-business-concept_107791-76.jpg?',
+                  'images/ourvision.jpg',
               title: 'Our Vision',
               desc:
                   'We are passionate in our work and never look at alternatives for hard work. We build a strong connection with our colleagues, emotionally and professionally, which enable us to create a good environment in our company. We always treat our clients with a positive attitude, we treat them with due respect and maintain professionalism with them. As we always look at our company as a team of intellectuals, so we have created a democratic platform, in which everyone\'s voice and outlook is being mattered. ',
               url:
-                  'https://image.freepik.com/free-vector/decorative-cyber-robot-digital-hi-tech-look-vision-optic-emblem-isolated-vector-illustration_1284-2330.jpg',
-            ),
+                  'images/vision_secondary.jpg',
+            )
           ],
         ),
         Container(
