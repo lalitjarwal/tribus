@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tribus/Widgets/hoverprofile.dart';
 import 'package:tribus/Widgets/title.dart';
-
+//
 class TeamPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class TeamPage extends StatelessWidget {
                 email: 'nandanwewhare25@gmail.com',
               ),
               HoverProfile(
-                title: 'BDA',
+                title: 'Lead, Resource Management',
                 name: 'Adhaar Saxena ',
                 dpUrl:
                     'images/adhaar.jpg',
@@ -53,7 +53,7 @@ class TeamPage extends StatelessWidget {
                 email: 'saxenaadhaar033@gmail.com',
               ),
               HoverProfile(
-                title: 'Chief, HR',
+                title: 'Chief, Human Resources',
                 name: 'Abhishek Sharma',
                 dpUrl:
                     'images/powder.jpg',
