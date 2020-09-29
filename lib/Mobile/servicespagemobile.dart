@@ -1,70 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:tribus/constants.dart';
 
-class AboutPageMobile extends StatelessWidget {
+class ServicePageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var padding = MediaQuery.of(context).padding;
     return Container(
-      padding: EdgeInsets.only(
-        top: padding.top,
-      ),
       decoration: BoxDecoration(
           image: DecorationImage(
+              fit: BoxFit.fill,
               image: NetworkImage(
-                  'https://image.freepik.com/free-vector/watercolor-background_87374-69.jpg'),
-              fit: BoxFit.fill)),
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Text(
-          'About Us',
-          style: TextStyle(
-              decoration: TextDecoration.underline,
-              color: kBlueColor,
-              fontSize: 22,
-              fontWeight: FontWeight.bold),
-        ),
-        AboutCard(
-          left: false,
-          url:
-              'https://image.freepik.com/free-vector/businessman-top-mountain_1133-275.jpg',
-          title: 'Our Mission',
-          desc:
-              'Our mission is to provide a platform to the people where they can find anythingthat they need.',
-        ),
-        AboutCard(
-          left: true,
-          url:
-              'https://image.freepik.com/free-vector/manager-prioritizing-tasks-list_74855-5272.jpg',
-          title: 'Our Plan',
-          desc:
-              'Our mission is to provide a platform to the people where they can find.',
-        ),
-        AboutCard(
-          left: false,
-          url:
-              'https://image.freepik.com/free-vector/businessman-flying-rocket-business-concept_107791-76.jpg?',
-          title: 'Our Vission',
-          desc:
-              'Our mission is to provide a platform to the people where they c.',
-        ),
-      ]),
+                'https://image.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1105.jpg',
+              ))),
+      padding: EdgeInsets.only(
+          top: padding.top, left: padding.left + 10, right: padding.right + 10),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            'Services',
+            style: TextStyle(
+                decoration: TextDecoration.underline,
+                color: kBlueColor,
+                fontSize: 22,
+                fontWeight: FontWeight.bold),
+          ),
+          Service(
+            url:
+                'https://image.freepik.com/free-vector/businessman-flying-rocket-business-concept_107791-76.jpg?',
+            title: 'Web Development',
+            desc:
+                'sknfvo jnvdvn nvnvnrov jnvkvjnvr kdnvvnvnv dvmdv dkvnvndfv dkvfvnov',
+            left: false,
+          ),
+          Service(
+            url:
+                'https://image.freepik.com/free-vector/businessman-flying-rocket-business-concept_107791-76.jpg?',
+            title: 'Mobile App Development',
+            desc:
+                'sknfvo jnvdvn nvnvnrov jnvkvjnvr kdnvvnvnv dvmdv dkvnvndfv dkvfvnov',
+            left: true,
+          ),
+          Service(
+            url:
+                'https://image.freepik.com/free-vector/businessman-flying-rocket-business-concept_107791-76.jpg?',
+            title: 'IoT & Embedded System',
+            desc:
+                'sknfvo jnvdvn nvnvnrov jnvkvjnvr kdnvvnvnv dvmdv dkvnvndfv dkvfvnov',
+            left: false,
+          ),
+        ],
+      ),
     );
   }
 }
 
-class AboutCard extends StatelessWidget {
+class Service extends StatelessWidget {
   final bool left;
-  final String url;
   final String title;
+  final String url;
   final String desc;
-  const AboutCard({Key key, this.url, this.title, this.desc, this.left})
-      : super(key: key);
+
+  Service({this.desc, this.left, this.title, this.url});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(right: 10, left: 10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(14), bottomRight: Radius.circular(14)),
@@ -76,7 +77,7 @@ class AboutCard extends StatelessWidget {
                 image: NetworkImage(
                     'https://image.freepik.com/free-vector/shiny-white-gray-background-with-wavy-lines_1017-25101.jpg'))),
         width: double.infinity,
-        height: MediaQuery.of(context).size.height / 4.5,
+        height: MediaQuery.of(context).size.height / 3.8,
         child: Row(children: [
           left
               ? Flexible(flex: 1, child: buildImage(left))

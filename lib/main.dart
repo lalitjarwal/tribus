@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         title: 'Tribus',
         theme: ThemeData(
           primaryColor: kBlueColor,
-            textTheme: GoogleFonts.playfairDisplayTextTheme(
+            textTheme: GoogleFonts.poppinsTextTheme(
                 Theme.of(context).textTheme)),
         home: LayoutBuilder(builder: (context, contraints) {
           if (contraints.minWidth >= 720)
