@@ -55,7 +55,7 @@ class _DesktopHomeState extends State<DesktopHome> {
             onTap: () {
               buildPage(0);
             },
-            child: Image.network(kLogoUrl)),
+            child: Image.asset('images/logo.png')),
         actions: [
           HoverButton(
               selected: currIndex == 0 ? true : false,

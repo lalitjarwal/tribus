@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tribus/Widgets/hoverprofile.dart';
 import 'package:tribus/Widgets/title.dart';
-//
+
 class TeamPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
