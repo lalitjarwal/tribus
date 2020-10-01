@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tribus/Widgets/Hovercard_service.dart';
 import 'package:tribus/Widgets/title.dart';
+import 'package:tribus/constants.dart';
 
 class ServicePage extends StatelessWidget {
   @override
@@ -24,22 +25,19 @@ class ServicePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 HoverCardService(
-                  url:
-                      'images/mobile_service.jpg',
-                  title: 'Mobile App Development',
-                  desc: '',
+                  url: 'images/mobile_service.jpg',
+                  title: kMobileTitle,
+                  desc: kMobileDesc,
                 ),
                 HoverCardService(
-                  url:
-                      'images/web_service.jpg',
-                  title: 'Web Development',
-                  desc: '',
+                  url: 'images/web_service.jpg',
+                  title: kWebTitle,
+                  desc: kWebDesc,
                 ),
                 HoverCardService(
-                  url:
-                      'images/iot_service.jpg',
-                  title: 'IOT & Embedded Solutions',
-                  desc: '',
+                  url: 'images/iot_service.jpg',
+                  title: kIotTitle,
+                  desc: kIotDesc,
                 ),
               ],
             ),

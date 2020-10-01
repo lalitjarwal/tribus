@@ -20,20 +20,14 @@ class _HomePageState extends State<HomePage> {
         items: [
           Container(
             decoration: buildBoxDecoration('images/carousel1.jpg'),
-            child: buildCenter(
-                'We Are Professional',
-                'We at Tribus try our best to solve modern-day problems with smart' +
-                    ' solutions \n using advanced technology. Our main tools are Mobile and Web applications that provides' +
-                    ' the \n effortless result with utmost accuracy. '),
+            child: buildCenter(kCarouselTitle1, kCarouselDesc1),
           ),
           Container(
-            child: buildCenter('Quality is Our First Priority',
-                'Our main aim to provide best of best products and services to clients.\nQuality is the only thing by which Tribus is alive '),
+            child: buildCenter(kCarouselTitle2, kCarouselDesc2),
             decoration: buildBoxDecoration('images/carousel2.jpg'),
           ),
           Container(
-            child: buildCenter('We Follow Only Passion',
-                'Our team follow passion in their work, support in the team work, \n professionalism with clients. '),
+            child: buildCenter(kCarouselTitle3, kCarouselDesc3),
             decoration: buildBoxDecoration('images/carousel3.jpg'),
           )
         ],

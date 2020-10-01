@@ -15,57 +15,57 @@ class JoinPage extends StatelessWidget {
             padding: const EdgeInsets.all(28),
             color: kWhiteColor,
             child: Center(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: Text(
-                    'Join Us Today!',
-                    style: TextStyle(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Text(
+                        kJoinHeading,
+                        style: TextStyle(
+                          color: kBlueColor,
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Text(
+                        kJoinSubHeading,
+                        style: TextStyle(
+                          color: kBlueColor,
+                          fontSize: 19,
+                        ),
+                      ),
+                    ),
+                    MaterialButton(
+                      shape: StadiumBorder(),
                       color: kBlueColor,
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: Text(
-                    'We are searching for aspiring minds. If you are one of those then \nfeel free to ask us.',
-                    style: TextStyle(
-                      color: kBlueColor,
-                      fontSize: 19,
-                    ),
-                  ),
-                ),
-                MaterialButton(
-                  shape: StadiumBorder(),
-                  color: kBlueColor,
-                  onPressed: () {
-                    showGeneralDialog(
-                        barrierDismissible: true,
-                        barrierLabel: 'Dismissed',
-                        context: context,
-                        pageBuilder: (ctx, anim1, anim2) {
-                          return JoinForm(formKey: _formKey);
-                        });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 8.0, horizontal: 12.0),
-                    child: Text(
-                      'Join Us',
-                      style: TextStyle(
-                          color: kWhiteColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                )
-              ],
-            )),
+                      onPressed: () {
+                        showGeneralDialog(
+                            barrierDismissible: true,
+                            barrierLabel: 'Dismissed',
+                            context: context,
+                            pageBuilder: (ctx, anim1, anim2) {
+                              return JoinForm(formKey: _formKey);
+                            });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 12.0),
+                        child: Text(
+                          kJoinBtnText,
+                          style: TextStyle(
+                              color: kWhiteColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    )
+                  ]),
+            ),
           ),
         ),
         Expanded(
@@ -73,9 +73,7 @@ class JoinPage extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('images/joinus.jpg')
-              ),
+                  fit: BoxFit.fill, image: AssetImage('images/joinus.jpg')),
             ),
             child: null,
           ),
@@ -129,66 +127,99 @@ class _JoinFormState extends State<JoinForm> {
           key: widget._formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TextFormField(
-                autofocus: true,
-                validator: (value) {
-                  if (value.isEmpty)
-                    return '*Please Enter Your Full Name';
-                  else
-                    return null;
-                },
-                style: TextStyle(fontSize: 20, color: kBlueColor),
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.all(12.0),
-                    labelText: 'Full Name',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    prefixIcon: Icon(Icons.person_outline)),
-              ),
-              SizedBox(height: 20),
-              TextFormField(
-                validator: (value) {
-                  bool emailValid = RegExp(
-                          r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
-                      .hasMatch(value);
-                  if (value.isEmpty)
-                    return '*Please Enter Your Working Email';
-                  else if (!emailValid)
-                    return '*Enter a Valid Email';
-                  else
-                    return null;
-                },
-                style: TextStyle(fontSize: 20, color: kBlueColor),
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.all(12.0),
-                    labelText: 'Email',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    prefixIcon: Icon(Icons.email_outlined)),
-              ),
-              SizedBox(height: 20),
-              Row(children: [
-                Expanded(
-                  child: TextField(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextFormField(
+                    autofocus: true,
+                    validator: (value) {
+                      if (value.isEmpty)
+                        return '*Please Enter Your Full Name';
+                      else
+                        return null;
+                    },
+                    style: TextStyle(fontSize: 20, color: kBlueColor),
+                    cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.all(12.0),
+                        labelText: kNameLabel,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        prefixIcon: kNameIcon)),
+                SizedBox(height: 20),
+                TextFormField(
+                  validator: (value) {
+                    bool emailValid = RegExp(
+                            r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                        .hasMatch(value);
+                    if (value.isEmpty)
+                      return '*Please Enter Your Working Email';
+                    else if (!emailValid)
+                      return '*Enter a Valid Email';
+                    else
+                      return null;
+                  },
+                  style: TextStyle(fontSize: 20, color: kBlueColor),
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.all(12.0),
+                      labelText: kEmailLabel,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      prefixIcon: kEmailIcon),
+                ),
+                SizedBox(height: 20),
+                Row(children: [
+                  Expanded(
+                    child: TextField(
                       controller: _resumeController,
                       readOnly: true,
                       style: TextStyle(fontSize: 20, color: kBlueColor),
                       cursorColor: Colors.black,
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(12.0),
-                        labelText: 'Upload Resume',
+                        labelText: kResumeLabel,
                         hintText: 'Choose file',
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12)),
-                        prefixIcon: Icon(Icons.file_copy),
-                      )),
+                        prefixIcon: kResumeIcon,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  MaterialButton(
+                    height: 48,
+                    color: kBlueColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 12.0),
+                      child: Text(
+                        kUploadBtnText,
+                        style: TextStyle(
+                            color: kWhiteColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    onPressed: () async {
+                      // File file;
+                      // FilePickerResult result = await FilePicker.platform
+                      //     .pickFiles(
+                      //         allowMultiple: false,
+                      //         allowedExtensions: ['pdf', 'doc', 'docx']);
+                      // if (result != null)
+                      //   file = File(result.files.single.bytes, 'resume');
+                      // print(result.paths);
+                      // print(file.relativePath);
+                      // _resumeController.text = file.relativePath;
+                    },
+                  ),
+                ]),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 4,
                 ),
-                SizedBox(width: 20),
                 MaterialButton(
                   height: 48,
                   color: kBlueColor,
@@ -198,50 +229,16 @@ class _JoinFormState extends State<JoinForm> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
                     child: Text(
-                      'Upload',
+                      kSubmitBtnText,
                       style: TextStyle(
                           color: kWhiteColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  onPressed: () async {
-                    // File file;
-                    // FilePickerResult result = await FilePicker.platform
-                    //     .pickFiles(
-                    //         allowMultiple: false,
-                    //         allowedExtensions: ['pdf', 'doc', 'docx']);
-                    // if (result != null)
-                    //   file = File(result.files.single.bytes, 'resume');
-                    // print(result.paths);
-                    // print(file.relativePath);
-                    // _resumeController.text = file.relativePath;
-                  },
+                  onPressed: () {},
                 ),
               ]),
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 4,
-              ),
-              MaterialButton(
-                height: 48,
-                color: kBlueColor,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 12.0),
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(
-                        color: kWhiteColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                onPressed: () {},
-              ),
-            ],
-          ),
         ),
       ),
     );

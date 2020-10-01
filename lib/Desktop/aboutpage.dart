@@ -18,32 +18,26 @@ class AboutPage extends StatelessWidget {
           padding: const EdgeInsets.only(top: 100),
           child: TitleString('ABOUT US'),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            HoverCard(
-              bannerUrl: 'images/ourmission.jpg',
-              title: 'Our Mission',
-              desc:
-                  'Our mission is to provide a platform to the people where they can find anything that they need. A place where a small idea would be welcomed by both hands and would be provided with the best results out of it. We want to develop an environment where every one of us can thrive and meet all the demands of the coming future. A place where each and every one ‘s voice, not only talking about our employees but our customers and everyone who incubate their ideas in the company would be relished upon and would be cared. ',
-              url: 'images/mission_secondary.jpg',
-            ),
-            HoverCard(
-              bannerUrl: 'images/ourplan.jpg',
-              title: 'Our Plan',
-              desc:
-                  'We plan to provide the best products and services to the people. We never compromise with the quality as in the future we have to create benchmarks for us only. We have to make long term goals and have to create a proper structure to achieve it. We are here to provide great values and to earn and to make respect. ',
-              url: 'images/plan_secondary.jpg',
-            ),
-            HoverCard(
-              bannerUrl: 'images/ourvision.jpg',
-              title: 'Our Vision',
-              desc:
-                  'We are passionate in our work and never look at alternatives for hard work. We build a strong connection with our colleagues, emotionally and professionally, which enable us to create a good environment in our company. We always treat our clients with a positive attitude, we treat them with due respect and maintain professionalism with them. As we always look at our company as a team of intellectuals, so we have created a democratic platform, in which everyone\'s voice and outlook is being mattered. ',
-              url: 'images/vision_secondary.jpg',
-            )
-          ],
-        ),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          HoverCard(
+            bannerUrl: 'images/ourmission.jpg',
+            title: kMissionTitle,
+            desc: kMissionDesc,
+            url: 'images/mission_secondary.jpg',
+          ),
+          HoverCard(
+            bannerUrl: 'images/ourplan.jpg',
+            title: kPlanTitle,
+            desc: kPlanDesc,
+            url: 'images/plan_secondary.jpg',
+          ),
+          HoverCard(
+            bannerUrl: 'images/ourvision.jpg',
+            title: kVisionTitle,
+            desc: kVisionDesc,
+            url: 'images/vision_secondary.jpg',
+          ),
+        ]),
         Container(
           height: 270,
           width: MediaQuery.of(context).size.width,
@@ -114,18 +108,16 @@ class AboutPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 18,
                                   color: kWhiteColor,
-                                  //fontWeight:FontWeight.bold,
                                 ),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: SelectableText(
-                                'Email: tribustechsolutions2020@gmail.com',
+                                'Email: tribustechsolutions@gmail.com',
                                 style: TextStyle(
                                   fontSize: 18,
                                   color: kWhiteColor,
-                                  //fontWeight:FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -217,7 +209,7 @@ class AboutPage extends StatelessWidget {
                   padding: const EdgeInsets.all(10.0),
                   child: Center(
                     child: Text(
-                        '© Copyright Tribus Tech Solutions. All Rights Reserved @2020',
+                        '© Copyright Tribus Tech Solutions @ 2020. All Rights Reserved.',
                         textScaleFactor: 1.2,
                         style: TextStyle(color: kWhiteColor)),
                   ),
