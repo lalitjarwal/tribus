@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tribus/constants.dart';
-
+//drgdg
 class JoinPageMobile extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   @override
