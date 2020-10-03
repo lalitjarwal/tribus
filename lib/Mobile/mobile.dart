@@ -34,6 +34,7 @@ class _MobileHomeState extends State<MobileHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       extendBodyBehindAppBar: true,
       drawer: Center(
         child: SizedBox(
@@ -123,6 +124,7 @@ class _MobileHomeState extends State<MobileHome> {
               width: 46,
               height: 46,
               child: FloatingActionButton(
+                tooltip: 'Back to top',
                   backgroundColor: kBlueColor,
                   child: Icon(
                     Icons.arrow_drop_up_rounded,
@@ -135,6 +137,7 @@ class _MobileHomeState extends State<MobileHome> {
                   }),
             )
           : null,
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       appBar: AppBar(
         backgroundColor:
             _index == 0 ? kWhiteColor.withOpacity(0.8) : kWhiteColor,
@@ -156,17 +159,15 @@ class _MobileHomeState extends State<MobileHome> {
       ),
       bottomNavigationBar: _index == 5
           ? BottomAppBar(
-              child: Container(
-              height: 83,
-              width: double.infinity,
-              color: Colors.white.withOpacity(0.8),
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+            shape: CircularNotchedRectangle(),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal:8.0),
+                      child: Text(
                         'Contact Us:',
                         style: TextStyle(
                             color: kBlueColor,
@@ -174,20 +175,19 @@ class _MobileHomeState extends State<MobileHome> {
                             fontWeight: FontWeight.w900,
                             decoration: TextDecoration.underline),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                              icon: Icon(Icons.phone),
-                              iconSize: 24,
-                              onPressed: () {
-                                launch('tel:=918005567003');
-                              })
-                        ],
-                      )
-                    ]),
-              ),
-            ))
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                            icon: Icon(Icons.phone),
+                            iconSize: 24,
+                            onPressed: () {
+                              launch('tel:=918005567003');
+                            })
+                      ],
+                    )
+                  ]))
           : null,
       body: PageView(
         controller: _controller,

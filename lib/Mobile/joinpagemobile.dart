@@ -107,7 +107,7 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
-                //autofocus: true,
+                autofocus: true,
                 validator: (value) {
                   if (value.isEmpty)
                     return '*Please Enter Your Full Name';
