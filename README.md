@@ -1,6 +1,6 @@
 # tribus
 
-A new Flutter project.
+A website for tribus tech solutions.
 
 ## Getting Started
 
