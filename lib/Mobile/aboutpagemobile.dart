@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tribus/constants.dart';
-
+// abcd
 class AboutPageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
