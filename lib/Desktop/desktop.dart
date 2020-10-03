@@ -108,7 +108,8 @@ class _DesktopHomeState extends State<DesktopHome> {
           },
           controller: _controller,
           scrollDirection: Axis.vertical,
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: PageScrollPhysics(),
+          
           children: [
             HomePage(),
             ServicePage(),

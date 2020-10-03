@@ -66,19 +66,14 @@ class _HoverCardState extends State<HoverCard> {
                               style: TextStyle(color: kBlueColor),
                             ),
                           ),
-                          Divider(
-                            indent: 25,
-                          ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 30),
                             child: Text(
                               widget.desc,
                               textAlign: TextAlign.justify,
                               textScaleFactor: size.width <= 1450 ? 0.7 : 0.9,
-                              maxLines: size.width <= 1000 ? 8 : null,
-                              overflow: size.width <= 1000
-                                  ? TextOverflow.ellipsis
-                                  : null,
+                              maxLines: 12,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(color: kBlackColor),
                             ),
                           ),
