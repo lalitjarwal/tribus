@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tribus/Mobile/aboutpagemobile.dart';
+import 'package:tribus/Mobile/joinpagemobile.dart';
 import 'package:tribus/Mobile/mobilehomepage.dart';
+import 'package:tribus/Mobile/productpagemobile.dart';
 import 'package:tribus/Mobile/servicespagemobile.dart';
 import 'package:tribus/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -199,14 +201,8 @@ class _MobileHomeState extends State<MobileHome> {
         children: [
           MobileHomePage(),
           ServicePageMobile(),
-          Container(
-            color: Colors.blue,
-            child: Center(child: Text('products')),
-          ),
-          Container(
-            color: Colors.red,
-            child: Center(child: Text('join us')),
-          ),
+          ProductPageMobile(),
+          JoinPageMobile(),
           Container(
             color: Colors.green,
             child: Center(child: Text('team')),
