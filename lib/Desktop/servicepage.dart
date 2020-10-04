@@ -14,35 +14,30 @@ class ServicePage extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 8,
+        child: Column(children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 8,
+          ),
+          TitleString('SERVICES'),
+          SizedBox(height: MediaQuery.of(context).size.height / 16),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            HoverCardService(
+              url: 'images/mobile_service.jpg',
+              title: kMobileTitle,
+              desc: kMobileDesc,
             ),
-            TitleString('SERVICES'),
-            SizedBox(height: MediaQuery.of(context).size.height / 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                HoverCardService(
-                  url: 'images/mobile_service.jpg',
-                  title: kMobileTitle,
-                  desc: kMobileDesc,
-                ),
-                HoverCardService(
-                  url: 'images/web_service.jpg',
-                  title: kWebTitle,
-                  desc: kWebDesc,
-                ),
-                HoverCardService(
-                  url: 'images/iot_service.jpg',
-                  title: kIotTitle,
-                  desc: kIotDesc,
-                ),
-              ],
+            HoverCardService(
+              url: 'images/web_service.jpg',
+              title: kWebTitle,
+              desc: kWebDesc,
             ),
-          ],
-        ),
+            HoverCardService(
+              url: 'images/iot_service.jpg',
+              title: kIotTitle,
+              desc: kIotDesc,
+            ),
+          ]),
+        ]),
       ),
     );
   }

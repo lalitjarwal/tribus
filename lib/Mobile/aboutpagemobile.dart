@@ -121,10 +121,14 @@ class AboutCard extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
-          borderRadius: left
-              ? BorderRadius.only(topLeft: Radius.circular(14))
-              : BorderRadius.only(bottomRight: Radius.circular(14)),
-          image: DecorationImage(fit: BoxFit.fill, image: NetworkImage(url))),
+        borderRadius: left
+            ? BorderRadius.only(topLeft: Radius.circular(14))
+            : BorderRadius.only(bottomRight: Radius.circular(14)),
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: NetworkImage(url),
+        ),
+      ),
     );
   }
 }

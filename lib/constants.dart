@@ -31,15 +31,15 @@ const kCarouselDesc3 =
 
 // Mobile Card
 const kMobileTitle = 'Mobile App Development';
-const kMobileDesc = '';
+const kMobileDesc = 'Get your mobile application built at a reasonable cost & according to your timeline.';
 
 // Web Card
 const kWebTitle = 'Web Development';
-const kWebDesc = '';
+const kWebDesc = 'We provide website design services for small and medium sized enterprises.';
 
 // IOT Card
 const kIotTitle = 'IOT & Embedded Solutions';
-const kIotDesc = '';
+const kIotDesc = 'Connect devices at your place together with Internet of Things and some electronics magic.';
 
 // Join Page ////////////////////////
 
