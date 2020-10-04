@@ -14,8 +14,7 @@ class TeamPage extends StatelessWidget {
         ),
       ),
       child: Center(
-          child: Column(
-        children: [
+        child: Column(children: [
           SizedBox(
             height: 100,
           ),
@@ -47,16 +46,15 @@ class TeamPage extends StatelessWidget {
               email: kEmail3,
             ),
             HoverProfile(
-              title: kTitle4,
-              name: kName4,
-              dpUrl: kDpUrl4,
-              instaUrl: kInstaUrl4,
-              linkedInUrl: kLinkedInUrl4,
-              email: kEmail4
-            )
+                title: kTitle4,
+                name: kName4,
+                dpUrl: kDpUrl4,
+                instaUrl: kInstaUrl4,
+                linkedInUrl: kLinkedInUrl4,
+                email: kEmail4)
           ]),
-        ],
-      )),
+        ]),
+      ),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:tribus/Mobile/joinpagemobile.dart';
 import 'package:tribus/Mobile/mobilehomepage.dart';
 import 'package:tribus/Mobile/productpagemobile.dart';
 import 'package:tribus/Mobile/servicespagemobile.dart';
+import 'package:tribus/Mobile/teampagemobile.dart';
 import 'package:tribus/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -35,7 +36,7 @@ class _MobileHomeState extends State<MobileHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      extendBodyBehindAppBar: true,
+      //extendBodyBehindAppBar: true,
       drawer: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width / 1.5,
@@ -43,79 +44,82 @@ class _MobileHomeState extends State<MobileHome> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Drawer(
-                elevation: 0.0,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      DrawerHeader(
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
+              elevation: 0.0,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    DrawerHeader(
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
                             CircleAvatar(
-                                radius: 45,
-                                backgroundColor: Colors.transparent,
-                                backgroundImage: NetworkImage(
-                                    'https://raw.githubusercontent.com/lalitjarwal/Portfolio-v2/master/img/Adhaar.png')),
+                              radius: 45,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage: AssetImage('images/logo.png'),
+                            ),
                             Center(
-                                child: Text(
-                              'Tribus Tech Solutions',
-                              style: TextStyle(
-                                  color: kBlueColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
-                            ))
-                          ])),
-                      ListTile(
-                        selected: _index == 0 ? true : false,
-                        onTap: () {
-                          buildPage(0);
-                        },
-                        selectedTileColor: kBlueColor,
-                        title: buildTitle('Home', _index, 0),
-                      ),
-                      ListTile(
-                        selected: _index == 1 ? true : false,
-                        onTap: () {
-                          buildPage(1);
-                        },
-                        selectedTileColor: kBlueColor,
-                        title: buildTitle('Services', _index, 1),
-                      ),
-                      ListTile(
-                        selected: _index == 2 ? true : false,
-                        onTap: () {
-                          buildPage(2);
-                        },
-                        selectedTileColor: kBlueColor,
-                        title: buildTitle('Products', _index, 2),
-                      ),
-                      ListTile(
-                        selected: _index == 3 ? true : false,
-                        selectedTileColor: kBlueColor,
-                        onTap: () {
-                          buildPage(3);
-                        },
-                        title: buildTitle('Join Us', _index, 3),
-                      ),
-                      ListTile(
-                        selected: _index == 4 ? true : false,
-                        onTap: () {
-                          buildPage(4);
-                        },
-                        selectedTileColor: kBlueColor,
-                        title: buildTitle('Our Team', _index, 4),
-                      ),
-                      ListTile(
-                        selected: _index == 5 ? true : false,
-                        onTap: () {
-                          buildPage(5);
-                        },
-                        selectedTileColor: kBlueColor,
-                        title: buildTitle('About', _index, 5),
-                      ),
-                    ],
-                  ),
-                )),
+                              child: Text(
+                                'Tribus Tech Solutions',
+                                style: TextStyle(
+                                    color: kBlueColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
+                            )
+                          ]),
+                    ),
+                    ListTile(
+                      selected: _index == 0 ? true : false,
+                      onTap: () {
+                        buildPage(0);
+                      },
+                      selectedTileColor: kBlueColor,
+                      title: buildTitle('Home', _index, 0),
+                    ),
+                    ListTile(
+                      selected: _index == 1 ? true : false,
+                      onTap: () {
+                        buildPage(1);
+                      },
+                      selectedTileColor: kBlueColor,
+                      title: buildTitle('Services', _index, 1),
+                    ),
+                    ListTile(
+                      selected: _index == 2 ? true : false,
+                      onTap: () {
+                        buildPage(2);
+                      },
+                      selectedTileColor: kBlueColor,
+                      title: buildTitle('Products', _index, 2),
+                    ),
+                    ListTile(
+                      selected: _index == 3 ? true : false,
+                      selectedTileColor: kBlueColor,
+                      onTap: () {
+                        buildPage(3);
+                      },
+                      title: buildTitle('Join Us', _index, 3),
+                    ),
+                    ListTile(
+                      selected: _index == 4 ? true : false,
+                      onTap: () {
+                        buildPage(4);
+                      },
+                      selectedTileColor: kBlueColor,
+                      title: buildTitle('Our Team', _index, 4),
+                    ),
+                    ListTile(
+                      selected: _index == 5 ? true : false,
+                      onTap: () {
+                        buildPage(5);
+                      },
+                      selectedTileColor: kBlueColor,
+                      title: buildTitle('About', _index, 5),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -124,7 +128,7 @@ class _MobileHomeState extends State<MobileHome> {
               width: 46,
               height: 46,
               child: FloatingActionButton(
-                tooltip: 'Back to top',
+                  tooltip: 'Back to top',
                   backgroundColor: kBlueColor,
                   child: Icon(
                     Icons.arrow_drop_up_rounded,
@@ -137,7 +141,7 @@ class _MobileHomeState extends State<MobileHome> {
                   }),
             )
           : null,
-          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       appBar: AppBar(
         backgroundColor:
             _index == 0 ? kWhiteColor.withOpacity(0.8) : kWhiteColor,
@@ -147,11 +151,12 @@ class _MobileHomeState extends State<MobileHome> {
         ),
         textTheme: Theme.of(context).textTheme.copyWith(
                 headline6: GoogleFonts.playfairDisplay(
-                    textStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: kBlueColor,
-              fontSize: 16,
-            ))),
+              textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: kBlueColor,
+                fontSize: 16,
+              ),
+            )),
         title: Image.network(
           'https://raw.githubusercontent.com/lalitjarwal/Portfolio-v2/master/img/Adhaar.png',
           width: 56,
@@ -159,14 +164,14 @@ class _MobileHomeState extends State<MobileHome> {
       ),
       bottomNavigationBar: _index == 5
           ? BottomAppBar(
-            shape: CircularNotchedRectangle(),
+              shape: CircularNotchedRectangle(),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal:8.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
                         'Contact Us:',
                         style: TextStyle(
@@ -187,7 +192,8 @@ class _MobileHomeState extends State<MobileHome> {
                             })
                       ],
                     )
-                  ]))
+                  ]),
+            )
           : null,
       body: PageView(
         controller: _controller,
@@ -203,10 +209,7 @@ class _MobileHomeState extends State<MobileHome> {
           ServicePageMobile(),
           ProductPageMobile(),
           JoinPageMobile(),
-          Container(
-            color: Colors.green,
-            child: Center(child: Text('team')),
-          ),
+          TeamPageMobile(),
           AboutPageMobile()
         ],
       ),
