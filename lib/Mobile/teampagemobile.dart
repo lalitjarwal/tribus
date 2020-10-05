@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tribus/constants.dart';
@@ -125,8 +126,15 @@ class TeamPageMobile extends StatelessWidget {
                   ])
             ],
           ),
-          trailing: ClipOval(
-            child: Image.asset(dpUrl),
+          trailing: GestureDetector(
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => Dialog(child: Image.asset(dpUrl)));
+            },
+            child: ClipOval(
+              child: Image.asset(dpUrl),
+            ),
           ),
         ),
       ),

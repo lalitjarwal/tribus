@@ -26,21 +26,21 @@ class ServicePageMobile extends StatelessWidget {
         ),
         Service(
           url: 'images/web_service.jpg',
-          title: 'Web Development',
+          title: kWebTitle,
           desc:
               kWebDesc,
           left: false,
         ),
         Service(
           url: 'images/mobile_service.jpg',
-          title: 'Mobile App Development',
+          title: kMobileTitle,
           desc:
               kMobileDesc,
           left: true,
         ),
         Service(
           url: 'images/iot_service.jpg',
-          title: 'IoT & Embedded System',
+          title: kIotTitle,
           desc:
               kIotDesc,
           left: false,

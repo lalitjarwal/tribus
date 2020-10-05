@@ -11,8 +11,7 @@ class AboutPageMobile extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: NetworkImage(
-                'https://image.freepik.com/free-vector/watercolor-background_87374-69.jpg'),
+            image: AssetImage('images/aboutusbackground.jpg'),
             fit: BoxFit.fill),
       ),
       child:
@@ -27,24 +26,21 @@ class AboutPageMobile extends StatelessWidget {
         ),
         AboutCard(
           left: false,
-          url:
-              'https://image.freepik.com/free-vector/businessman-top-mountain_1133-275.jpg',
+          url: 'images/ourmission.jpg',
           title: 'Our Mission',
           desc:
               'We work hard everyday to develop high quality software solutions for our clients\' enterprises and businesses.',
         ),
         AboutCard(
           left: true,
-          url:
-              'https://image.freepik.com/free-vector/manager-prioritizing-tasks-list_74855-5272.jpg',
+          url: 'images/ourplan.jpg',
           title: 'Our Plan',
           desc:
               'To be focused towards the goal i.e. excellence and most importantly customer satisfaction.',
         ),
         AboutCard(
           left: false,
-          url:
-              'https://image.freepik.com/free-vector/businessman-flying-rocket-business-concept_107791-76.jpg?',
+          url: 'images/ourvision.jpg',
           title: 'Our Vision',
           desc:
               'Our vision is to become the leader in delivering quality services to our clients while maintaining teamwork and commitment.',
@@ -67,15 +63,16 @@ class AboutCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(right: 10, left: 10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(14), bottomRight: Radius.circular(14)),
-          boxShadow: [
-            BoxShadow(offset: Offset(8, 8), color: Colors.grey, blurRadius: 8)
-          ],
-          image: DecorationImage(
-              fit: BoxFit.fill,
-              image: NetworkImage(
-                  'https://image.freepik.com/free-vector/shiny-white-gray-background-with-wavy-lines_1017-25101.jpg'))),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(14), bottomRight: Radius.circular(14)),
+        boxShadow: [
+          BoxShadow(offset: Offset(8, 8), color: Colors.grey, blurRadius: 8)
+        ],
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage('images/aboutsecondary.jpg'),
+        ),
+      ),
       width: double.infinity,
       height: MediaQuery.of(context).size.height / 4.5,
       child: Row(children: [
@@ -126,7 +123,7 @@ class AboutCard extends StatelessWidget {
             : BorderRadius.only(bottomRight: Radius.circular(14)),
         image: DecorationImage(
           fit: BoxFit.fill,
-          image: NetworkImage(url),
+          image: AssetImage(url),
         ),
       ),
     );

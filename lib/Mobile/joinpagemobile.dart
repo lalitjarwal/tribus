@@ -10,58 +10,56 @@ class JoinPageMobile extends StatelessWidget {
       padding: EdgeInsets.only(
           top: padding.top, left: padding.left + 10, right: padding.right + 10),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.network(
-              'https://image.freepik.com/free-vector/hiring-employment-concept-employee-coming-office-job-interview-recruit-manager-meeting-him-empty-vacant-workplace-employment-vacancy-recruitment-topics_179970-2125.jpg'),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            child: Text(
-              'Join Us Today!',
-              style: TextStyle(
-                color: kBlueColor,
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            child: Text(
-              'We are searching for aspiring minds. If you are one of those then \nfeel free to ask us.',
-              style: TextStyle(
-                color: kBlueColor,
-                fontSize: 18,
-              ),
-            ),
-          ),
-          MaterialButton(
-            shape: StadiumBorder(),
-            color: kBlueColor,
-            onPressed: () {
-              showGeneralDialog(
-                  barrierDismissible: true,
-                  barrierLabel: 'Dissmissed',
-                  context: context,
-                  pageBuilder: (ctx, anim1, anim2) {
-                    return JoinFormMobile(formKey: _formKey);
-                  });
-            },
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset('images/joinus.jpg'),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
               child: Text(
-                'Join Us',
+                kJoinHeading,
                 style: TextStyle(
-                    color: kWhiteColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                  color: kBlueColor,
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          )
-        ],
-      ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Text(
+                kJoinSubHeading,
+                style: TextStyle(
+                  color: kBlueColor,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+            MaterialButton(
+              shape: StadiumBorder(),
+              color: kBlueColor,
+              onPressed: () {
+                showGeneralDialog(
+                    barrierDismissible: true,
+                    barrierLabel: 'Dismissed',
+                    context: context,
+                    pageBuilder: (ctx, anim1, anim2) {
+                      return JoinFormMobile(formKey: _formKey);
+                    });
+              },
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                child: Text(
+                  'Join Us',
+                  style: TextStyle(
+                      color: kWhiteColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            )
+          ]),
     );
   }
 }
@@ -117,11 +115,13 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                   style: TextStyle(fontSize: 16, color: kBlueColor),
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(12.0),
-                      labelText: 'Full Name',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      prefixIcon: Icon(Icons.person_outline)),
+                    contentPadding: const EdgeInsets.all(12.0),
+                    labelText: 'Full Name',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    prefixIcon: Icon(Icons.person_outline),
+                  ),
                 ),
                 SizedBox(height: 20),
                 TextFormField(
@@ -139,11 +139,13 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                   style: TextStyle(fontSize: 16, color: kBlueColor),
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(12.0),
-                      labelText: 'Email',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      prefixIcon: Icon(Icons.email_outlined)),
+                    contentPadding: const EdgeInsets.all(12.0),
+                    labelText: 'Email',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    prefixIcon: Icon(Icons.email_outlined),
+                  ),
                 ),
                 SizedBox(height: 20),
                 Expanded(
@@ -157,7 +159,8 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                       labelText: 'Upload Resume',
                       hintText: 'Choose file',
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       prefixIcon: Icon(Icons.file_copy),
                     ),
                   ),
@@ -168,7 +171,8 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                   height: 48,
                   color: kBlueColor,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
@@ -200,7 +204,8 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                   height: 48,
                   color: kBlueColor,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
