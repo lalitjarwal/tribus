@@ -1,5 +1,7 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:tribus/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class JoinPageMobile extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -81,6 +83,8 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
   final _resumeController = TextEditingController();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+  FilePickerResult result;
+  String filename = 'No file selected';
   @override
   void dispose() {
     _resumeController.dispose();
@@ -165,6 +169,11 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                     ),
                   ),
                 ),
+                Text(
+                  filename.split('/').last,
+                  textScaleFactor: 1.5,
+                  style: TextStyle(color: kBlueColor),
+                ),
                 SizedBox(width: 20),
                 Spacer(),
                 MaterialButton(
@@ -177,7 +186,7 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
                     child: Text(
-                      'Upload',
+                      'Choose File',
                       style: TextStyle(
                           color: kWhiteColor,
                           fontSize: 16,
@@ -185,16 +194,10 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                     ),
                   ),
                   onPressed: () async {
-                    // File file;
-                    // FilePickerResult result = await FilePicker.platform
-                    //     .pickFiles(
-                    //         allowMultiple: false,
-                    //         allowedExtensions: ['pdf', 'doc', 'docx']);
-                    // if (result != null)
-                    //   file = File(result.files.single.bytes, 'resume');
-                    // print(result.paths);
-                    // print(file.relativePath);
-                    // _resumeController.text = file.relativePath;
+                    result = await FilePicker.platform.pickFiles();
+                    if (result != null) {
+                      setState(() => filename = result.files.single.name);
+                    }
                   },
                 ),
                 SizedBox(
@@ -217,7 +220,81 @@ class _JoinFormMobileState extends State<JoinFormMobile> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (filename == 'No file selected.' ||
+                        _nameController.value == null ||
+                        _emailController.value == null) {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height / 5,
+                                width: MediaQuery.of(context).size.width / 5,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          'Some fields are empty.',
+                                          textScaleFactor: 1.2,
+                                        ),
+                                      ),
+                                      MaterialButton(
+                                        textColor: Colors.white,
+                                        color: kBlueColor,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        onPressed: () => Navigator.pop(context),
+                                        child: Text('OK'),
+                                      ),
+                                    ]),
+                              ),
+                            );
+                          });
+                    } else if (filename.contains('.pdf') ||
+                        filename.contains('.doc') ||
+                        filename.contains('.docx')) {
+                      // mail code here.
+                      launch(
+                          'mailto:tribustechsolutions@gmail.com?subject=Resume');
+                    } else {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height / 5,
+                                width: MediaQuery.of(context).size.width / 5,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          'Only pdf/doc/docx allowed.',
+                                          textScaleFactor: 1.2,
+                                        ),
+                                      ),
+                                      MaterialButton(
+                                        textColor: Colors.white,
+                                        color: kBlueColor,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        onPressed: () => Navigator.pop(context),
+                                        child: Text('OK'),
+                                      ),
+                                    ]),
+                              ),
+                            );
+                          });
+                    }
+                  },
                 ),
               ]),
         ),

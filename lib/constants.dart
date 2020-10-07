@@ -53,7 +53,7 @@ const kJoinBtnText = 'Join Us';
 const kNameLabel = 'Full Name';
 const kEmailLabel = 'Email';
 const kResumeLabel = 'Upload Resume';
-const kUploadBtnText = 'Upload';
+const kUploadBtnText = 'Browse...';
 const kSubmitBtnText = 'Submit';
 
 const kNameIcon = Icon(Icons.person_outline);

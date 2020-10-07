@@ -1,6 +1,7 @@
-//import 'package:file_picker/file_picker.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:tribus/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class JoinPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -100,6 +101,8 @@ class _JoinFormState extends State<JoinForm> {
   final _resumeController = TextEditingController();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+  FilePickerResult result;
+  String filename = 'No file selected';
   @override
   void dispose() {
     _resumeController.dispose();
@@ -131,21 +134,22 @@ class _JoinFormState extends State<JoinForm> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 TextFormField(
-                    autofocus: true,
-                    validator: (value) {
-                      if (value.isEmpty)
-                        return '*Please Enter Your Full Name';
-                      else
-                        return null;
-                    },
-                    style: TextStyle(fontSize: 20, color: kBlueColor),
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.all(12.0),
-                        labelText: kNameLabel,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                        prefixIcon: kNameIcon)),
+                  autofocus: true,
+                  validator: (value) {
+                    if (value.isEmpty)
+                      return '*Please Enter Your Full Name';
+                    else
+                      return null;
+                  },
+                  style: TextStyle(fontSize: 20, color: kBlueColor),
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.all(12.0),
+                      labelText: kNameLabel,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      prefixIcon: kNameIcon),
+                ),
                 SizedBox(height: 20),
                 TextFormField(
                   validator: (value) {
@@ -191,7 +195,8 @@ class _JoinFormState extends State<JoinForm> {
                     height: 48,
                     color: kBlueColor,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 8.0, horizontal: 12.0),
@@ -204,27 +209,27 @@ class _JoinFormState extends State<JoinForm> {
                       ),
                     ),
                     onPressed: () async {
-                      // File file;
-                      // FilePickerResult result = await FilePicker.platform
-                      //     .pickFiles(
-                      //         allowMultiple: false,
-                      //         allowedExtensions: ['pdf', 'doc', 'docx']);
-                      // if (result != null)
-                      //   file = File(result.files.single.bytes, 'resume');
-                      // print(result.paths);
-                      // print(file.relativePath);
-                      // _resumeController.text = file.relativePath;
+                      result = await FilePicker.platform.pickFiles();
+                      if (result != null) {
+                        setState(() => filename = result.files.single.name);
+                      }
                     },
                   ),
                 ]),
+                Text(
+                  filename.split('/').last,
+                  textScaleFactor: 1.5,
+                  style: TextStyle(color: kBlueColor),
+                ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 4,
+                  height: MediaQuery.of(context).size.height / 5,
                 ),
                 MaterialButton(
                   height: 48,
                   color: kBlueColor,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
@@ -236,7 +241,49 @@ class _JoinFormState extends State<JoinForm> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (filename == 'No file selected.' ||
+                        _nameController.text == '' ||
+                        _emailController.text == '') {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height / 5,
+                                width: MediaQuery.of(context).size.width / 5,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        'Some fields are empty.',
+                                        textScaleFactor: 1.2,
+                                      ),
+                                    ),
+                                    MaterialButton(
+                                      textColor: Colors.white,
+                                      color: kBlueColor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      onPressed: () => Navigator.pop(context),
+                                      child: Text('OK'),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          });
+                    } else if (filename.contains('.pdf') ||
+                        filename.contains('.doc') ||
+                        filename.contains('.docx')) {
+                      // mail code here.
+                      launch(
+                          'mailto:tribustechsolutions@gmail.com?subject=Resume + ${_nameController.text}');
+                    }
+                  },
                 ),
               ]),
         ),
