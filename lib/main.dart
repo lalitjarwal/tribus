@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tribus/Desktop/desktop.dart';
 import 'package:tribus/Mobile/mobile.dart';
 import 'package:tribus/constants.dart';
-
+// jhbj
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
