@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -12,15 +13,41 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>tribus</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-storage.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyBFdIHtUqGTn6e71zmoZtsq0VNn406a0Yo",
+      authDomain: "tribus-web-46d32.firebaseapp.com",
+      databaseURL: "https://tribus-web-46d32.firebaseio.com",
+      projectId: "tribus-web-46d32",
+      storageBucket: "tribus-web-46d32.appspot.com",
+      messagingSenderId: "908225667539",
+      appId: "1:908225667539:web:105416efc69aeb3f6ccf26",
+      measurementId: "G-KNQ5V3G96N"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
@@ -30,4 +57,5 @@
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
+
 </html>

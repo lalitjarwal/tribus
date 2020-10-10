@@ -10,16 +10,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Tribus',
-        theme: ThemeData(
-          primaryColor: kBlueColor,
-            textTheme: GoogleFonts.poppinsTextTheme(
-                Theme.of(context).textTheme)),
-        home: LayoutBuilder(builder: (context, contraints) {
-          if (contraints.minWidth >= 720)
-            return DesktopHome();
-          else
-            return MobileHome();
-        }));
+      title: 'Tribus',
+      theme: ThemeData(
+        primaryColor: kBlueColor,
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+      ),
+      home: LayoutBuilder(builder: (context, contraints) {
+        if (contraints.minWidth >= 720)
+          return DesktopHome();
+        else
+          return MobileHome();
+      }),
+    );
   }
 }

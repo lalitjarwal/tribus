@@ -49,47 +49,47 @@ class _DesktopHomeState extends State<DesktopHome> {
               fontSize: 28,
             ))),
         title: Text(
-          'Tribus Tech Solutions',
+          kCompanyName,
         ),
         leading: GestureDetector(
             onTap: () {
               buildPage(0);
             },
-            child: Image.network(kLogoUrl)),
+            child: Image.asset('images/logo.png')),
         actions: [
           HoverButton(
               selected: currIndex == 0 ? true : false,
-              title: 'Home',
+              title: kAction1,
               onPressed: () {
                 buildPage(0);
               }),
           HoverButton(
               selected: currIndex == 1 ? true : false,
-              title: 'Services',
+              title: kAction2,
               onPressed: () {
                 buildPage(1);
               }),
           HoverButton(
               selected: currIndex == 2 ? true : false,
-              title: 'Products',
+              title: kAction3,
               onPressed: () {
                 buildPage(2);
               }),
           HoverButton(
               selected: currIndex == 3 ? true : false,
-              title: 'Join Us',
+              title: kAction4,
               onPressed: () {
                 buildPage(3);
               }),
           HoverButton(
               selected: currIndex == 4 ? true : false,
-              title: 'Our Team',
+              title: kAction5,
               onPressed: () {
                 buildPage(4);
               }),
           HoverButton(
               selected: currIndex == 5 ? true : false,
-              title: 'About',
+              title: kAction6,
               onPressed: () {
                 buildPage(5);
               }),
