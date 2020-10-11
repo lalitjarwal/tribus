@@ -45,6 +45,7 @@ class AboutPageMobile extends StatelessWidget {
           desc:
               'Our vision is to become the leader in delivering quality services to our clients while maintaining teamwork and commitment.',
         ),
+        SizedBox(height:46)
       ]),
     );
   }

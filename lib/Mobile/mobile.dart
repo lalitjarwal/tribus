@@ -140,6 +140,7 @@ class _MobileHomeState extends State<MobileHome> {
                   }),
             )
           : null,
+          extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       appBar: AppBar(
         backgroundColor:
@@ -161,126 +162,123 @@ class _MobileHomeState extends State<MobileHome> {
         ),
       ),
       bottomNavigationBar: _index == 5
-          ? BottomAppBar(
-              shape: CircularNotchedRectangle(),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: RaisedButton(
-                            color: kBlueColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'CONTACT US',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                            ),
-                            onPressed: () {
-                              // contact us code
-                              showModalBottomSheet(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20),
-                                    ),
-                                  ),
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    //contact info here
-                                    return Center(
-                                      child: Column(children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Text('Reach Us:',
-                                              textScaleFactor: 1.5,
-                                              style: TextStyle(
-                                                  color: kBlueColor,
-                                                  decoration: TextDecoration
-                                                      .underline)),
-                                        ),
-                                        ButtonBar(
-                                            alignment: MainAxisAlignment.center,
-                                            children: [
-                                              buildOutlineButton(
-                                                'Call',
-                                                Icon(Icons.phone),
-                                                'tel: +91 8005567003',
-                                              ),
-                                              buildOutlineButton(
-                                                'Email',
-                                                Icon(Icons.mail),
-                                                'mailto: tribustechsolutions@gmail.com',
-                                              ),
-                                              buildOutlineButton(
-                                                'Locate',
-                                                FaIcon(
-                                                    FontAwesomeIcons.mapSigns),
-                                                'https://www.google.com/maps/search/?api=1&query=26.807098,75.831752',
-                                              ),
-                                            ]),
-                                        Divider(color: Colors.black,height: 5),
-                                        Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Text(
-                                            'Find Us On:',
-                                            textScaleFactor: 1.5,
-                                            style: TextStyle(
-                                              color: kBlueColor,
-                                              decoration:
-                                                  TextDecoration.underline,
-                                            ),
-                                          ),
-                                        ),
-                                        ButtonBar(
-                                            alignment: MainAxisAlignment.center,
-                                            children: [
-                                              buildOutlineButton(
-                                                  'Instagram',
-                                                  FaIcon(
-                                                    FontAwesomeIcons
-                                                        .instagramSquare,
-                                                    color: Color(0xFFC1359B),
-                                                  ),
-                                                  'https://www.google.com/'),
-                                              buildOutlineButton(
-                                                  'LinkedIn',
-                                                  FaIcon(
-                                                    FontAwesomeIcons.linkedin,
-                                                    color: Color(0xFF0077B5),
-                                                  ),
-                                                  'https://www.google.com/'),
-                                              buildOutlineButton(
-                                                  'Facebook',
-                                                  FaIcon(
-                                                      FontAwesomeIcons
-                                                          .facebookSquare,
-                                                      color: Color(0xFF4064AC)),
-                                                  'https://www.google.com/'),
-                                            ]),
-                                      ]),
-                                    );
-                                  });
-                            },
-                          ),
+          ? SizedBox(
+            height: 56,
+                      child: BottomAppBar(
+            
+                shape: CircularNotchedRectangle(),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: RaisedButton(
+                      color: kBlueColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Text(
+                        'CONTACT US',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
+                      onPressed: () {
+                        // contact us code
+                        showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+                            context: context,
+                            builder: (BuildContext context) {
+                              //contact info here
+                              return Center(
+                                child: Column(children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text('Reach Us:',
+                                        textScaleFactor: 1.5,
+                                        style: TextStyle(
+                                            color: kBlueColor,
+                                            decoration: TextDecoration
+                                                .underline)),
+                                  ),
+                                  ButtonBar(
+                                      alignment: MainAxisAlignment.center,
+                                      children: [
+                                        buildOutlineButton(
+                                          'Call',
+                                          Icon(Icons.phone),
+                                          'tel: +91 8005567003',
+                                          110
+                                        ),
+                                        buildOutlineButton(
+                                          'Email',
+                                          Icon(Icons.mail),
+                                          'mailto: tribustechsolutions@gmail.com',
+                                          110
+                                        ),
+                                        buildOutlineButton(
+                                          'Locate',
+                                          FaIcon(
+                                              FontAwesomeIcons.mapSigns),
+                                          'https://www.google.com/maps/search/?api=1&query=26.807098,75.831752',
+                                          110
+                                        ),
+                                      ]),
+                                  Divider(color: Colors.black,height: 5),
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      'Find Us On:',
+                                      textScaleFactor: 1.5,
+                                      style: TextStyle(
+                                        color: kBlueColor,
+                                        decoration:
+                                            TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ),
+                                  ButtonBar(
+                                      alignment: MainAxisAlignment.center,
+                                      children: [
+                                        buildOutlineButton(
+                                            'Instagram',
+                                            FaIcon(
+                                              FontAwesomeIcons
+                                                  .instagramSquare,
+                                              color: Color(0xFFC1359B),
+                                             
+                                            ),
+                                            'https://www.google.com/',
+                                             135),
+                                        buildOutlineButton(
+                                            'LinkedIn',
+                                            FaIcon(
+                                              FontAwesomeIcons.linkedin,
+                                              color: Color(0xFF0077B5),
+                                            ),
+                                            'https://www.google.com/', 135),
+                                        buildOutlineButton(
+                                            'Facebook',
+                                            FaIcon(
+                                                FontAwesomeIcons
+                                                    .facebookSquare,
+                                                color: Color(0xFF4064AC)),
+                                            'https://www.google.com/', 135),
+                                      ]),
+                                ]),
+                              );
+                            });
+                      },
                     ),
-                  ]),
-            )
+                  ),
+                ),
+              ),
+          )
           : null,
       body: PageView(
           controller: _controller,
@@ -302,14 +300,19 @@ class _MobileHomeState extends State<MobileHome> {
     );
   }
 
-  OutlineButton buildOutlineButton(String name, Widget icon, String passedUrl) {
-    return OutlineButton.icon(
-      label: Text(name),
-      splashColor: Colors.lightBlue[200],
-      textColor: Colors.black,
-      icon: icon,
-      onPressed: () => launch(passedUrl),
-      borderSide: BorderSide(color: kBlueColor),
+  buildOutlineButton(String name, Widget icon, String passedUrl,double width) {
+    return SizedBox(width: width,
+          child: OutlineButton.icon(
+        label: Center(child: Text(name)),
+        splashColor: kBlueColor.withOpacity(0.7),
+        textColor: Colors.black,
+        shape: StadiumBorder(),
+        
+        icon: icon,
+        onPressed: () => launch(passedUrl),
+        
+        borderSide: BorderSide(color: kBlueColor,width: 2.0),
+      ),
     );
   }
 

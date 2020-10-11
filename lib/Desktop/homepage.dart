@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
         options: CarouselOptions(
+          height: double.infinity,
           onPageChanged: (index, reason) {
             setState(() {
               _index = index;
