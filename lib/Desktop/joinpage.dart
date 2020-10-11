@@ -175,7 +175,12 @@ class _JoinFormState extends State<JoinForm> {
                 SizedBox(height: 20),
                 Row(children: [
                   Expanded(
-                    child: TextField(
+                    child: TextFormField(
+                      validator: (value) {
+                        if(value.isEmpty)
+                        return "*Please choose a File";
+                        else return null;
+                      },
                       controller: _resumeController,
                       readOnly: true,
                       style: TextStyle(fontSize: 20, color: kBlueColor),
@@ -183,7 +188,7 @@ class _JoinFormState extends State<JoinForm> {
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(12.0),
                         labelText: kResumeLabel,
-                        hintText: 'Choose file',
+                        hintText: 'No File Choosen',
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12)),
                         prefixIcon: kResumeIcon,
@@ -211,16 +216,13 @@ class _JoinFormState extends State<JoinForm> {
                     onPressed: () async {
                       result = await FilePicker.platform.pickFiles();
                       if (result != null) {
-                        setState(() => filename = result.files.single.name);
+                        //setState(() =>);
+                        filename=result.files.single.name;
+                        _resumeController.text= result.files.single.name;
                       }
                     },
                   ),
                 ]),
-                Text(
-                  filename.split('/').last,
-                  textScaleFactor: 1.5,
-                  style: TextStyle(color: kBlueColor),
-                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 5,
                 ),
@@ -242,47 +244,50 @@ class _JoinFormState extends State<JoinForm> {
                     ),
                   ),
                   onPressed: () {
-                    if (filename == 'No file selected.' ||
-                        _nameController.text == '' ||
-                        _emailController.text == '') {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return Dialog(
-                              child: Container(
-                                height: MediaQuery.of(context).size.height / 5,
-                                width: MediaQuery.of(context).size.width / 5,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        'Some fields are empty.',
-                                        textScaleFactor: 1.2,
-                                      ),
-                                    ),
-                                    MaterialButton(
-                                      textColor: Colors.white,
-                                      color: kBlueColor,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      onPressed: () => Navigator.pop(context),
-                                      child: Text('OK'),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          });
-                    } else if (filename.contains('.pdf') ||
-                        filename.contains('.doc') ||
-                        filename.contains('.docx')) {
-                      // mail code here.
-                      launch(
-                          'mailto:tribustechsolutions@gmail.com?subject=Resume + ${_nameController.text}');
+                    if(widget._formKey.currentState.validate()){
+                      
                     }
+                    // if (filename == 'No file selected.' ||
+                    //     _nameController.text == '' ||
+                    //     _emailController.text == '') {
+                    //   showDialog(
+                    //       context: context,
+                    //       builder: (BuildContext context) {
+                    //         return Dialog(
+                    //           child: Container(
+                    //             height: MediaQuery.of(context).size.height / 5,
+                    //             width: MediaQuery.of(context).size.width / 5,
+                    //             child: Column(
+                    //               mainAxisAlignment: MainAxisAlignment.center,
+                    //               children: [
+                    //                 Padding(
+                    //                   padding: const EdgeInsets.all(8.0),
+                    //                   child: Text(
+                    //                     'Some fields are empty.',
+                    //                     textScaleFactor: 1.2,
+                    //                   ),
+                    //                 ),
+                    //                 MaterialButton(
+                    //                   textColor: Colors.white,
+                    //                   color: kBlueColor,
+                    //                   shape: RoundedRectangleBorder(
+                    //                     borderRadius: BorderRadius.circular(10),
+                    //                   ),
+                    //                   onPressed: () => Navigator.pop(context),
+                    //                   child: Text('OK'),
+                    //                 ),
+                    //               ],
+                    //             ),
+                    //           ),
+                    //         );
+                    //       });
+                    // } else if (filename.contains('.pdf') ||
+                    //     filename.contains('.doc') ||
+                    //     filename.contains('.docx')) {
+                    //   // mail code here.
+                    //   launch(
+                    //       'mailto:tribustechsolutions@gmail.com?subject=Resume + ${_nameController.text}');
+                    // }
                   },
                 ),
               ]),

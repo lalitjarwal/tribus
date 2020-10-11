@@ -71,7 +71,7 @@ class _HoverCardState extends State<HoverCard> {
                             child: Text(
                               widget.desc,
                               textAlign: TextAlign.justify,
-                              textScaleFactor: size.width <= 1450 ? 0.7 : 0.9,
+                              textScaleFactor: size.width <= 1450 ? 0.9 : 1.2,
                               maxLines: 12,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(color: kBlackColor),

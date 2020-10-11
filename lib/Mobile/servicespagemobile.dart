@@ -69,7 +69,8 @@ class Service extends StatelessWidget {
         ],
         image: DecorationImage(
           fit: BoxFit.fill,
-          image: AssetImage('images/product_background.jpg'),
+          image: NetworkImage(
+                        'https://image.freepik.com/free-vector/shiny-white-gray-background-with-wavy-lines_1017-25101.jpg'),
         ),
       ),
       width: double.infinity,
@@ -100,7 +101,6 @@ class Service extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           desc,
-          textAlign: TextAlign.justify,
           style: TextStyle(
             color: kBlackColor,
             fontSize: 16,

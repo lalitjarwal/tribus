@@ -5,6 +5,7 @@ import 'package:tribus/Mobile/joinpagemobile.dart';
 import 'package:tribus/Mobile/mobilehomepage.dart';
 import 'package:tribus/Mobile/productpagemobile.dart';
 import 'package:tribus/Mobile/servicespagemobile.dart';
+import 'package:tribus/Mobile/teampagemobile.dart';
 import 'package:tribus/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -203,10 +204,7 @@ class _MobileHomeState extends State<MobileHome> {
           ServicePageMobile(),
           ProductPageMobile(),
           JoinPageMobile(),
-          Container(
-            color: Colors.green,
-            child: Center(child: Text('team')),
-          ),
+         TeamPageMobile(),
           AboutPageMobile()
         ],
       ),
