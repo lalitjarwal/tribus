@@ -10,11 +10,11 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-        fit: BoxFit.fill,
-        image: NetworkImage(
-            'https://image.freepik.com/free-photo/blue-product-background_53876-89506.jpg'),
-      )),
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage('images/product_background.jpg'),
+        ),
+      ),
       child: Center(
           child: Column(
         children: [
@@ -58,16 +58,16 @@ class _ProductCardState extends State<ProductCard> {
         padding: const EdgeInsets.all(8),
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
-            border: Border.all(
-              color: kWhiteColor,
-              width: 8,
-            ),
-            borderRadius: BorderRadius.circular(5),
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: NetworkImage(
-                  'https://image.freepik.com/free-photo/blue-product-background_53876-89506.jpg'),
-            )),
+          border: Border.all(
+            color: kWhiteColor,
+            width: 8,
+          ),
+          borderRadius: BorderRadius.circular(5),
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage('images/product_background.jpg'),
+          ),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
