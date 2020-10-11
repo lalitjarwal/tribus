@@ -137,7 +137,7 @@ class _MobileHomeState extends State<MobileHome> {
                   }),
             )
           : null,
-          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+          floatingActionButtonLocation:_index==5? FloatingActionButtonLocation.miniEndDocked:FloatingActionButtonLocation.miniEndFloat,
       appBar: AppBar(
         backgroundColor:
             _index == 0 ? kWhiteColor.withOpacity(0.8) : kWhiteColor,
